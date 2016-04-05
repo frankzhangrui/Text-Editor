@@ -115,6 +115,20 @@ public class MyLinkedListTester {
 		assertEquals("Remove: check size is correct ", 2, list1.size());
 		
 		// TODO: Add more tests here
+		try {
+			list1.remove(-1);
+			fail("invalid index");
+		}
+		catch(IndexOutOfBoundsException e){
+			
+		}
+		try {
+			list1.remove(10000);
+			fail("invalid index");
+		}
+		catch(IndexOutOfBoundsException e){
+			
+		}
 	}
 	
 	/** Test adding an element into the end of the list, specifically
@@ -124,6 +138,14 @@ public class MyLinkedListTester {
 	public void testAddEnd()
 	{
         // TODO: implement this test
+		boolean success = emptyList.add(0);
+		assertEquals("Check if add is ok", success, true);
+		assertEquals("Check if add is ok", (Integer)0, emptyList.get(0));
+		assertEquals("Check if add is ok", 1, emptyList.size());
+		success = emptyList.add(2);
+		assertEquals("Check if add is ok", success, true);
+		assertEquals("Check if add is ok", (Integer)2,emptyList.get(1));
+		assertEquals("Check if add is ok", 2, emptyList.size());
 		
 	}
 
@@ -133,6 +155,10 @@ public class MyLinkedListTester {
 	public void testSize()
 	{
 		// TODO: implement this test
+		boolean success = emptyList.add(0);
+		assertEquals("Check if add is ok", 1, emptyList.size());
+		success = emptyList.add(2);
+		assertEquals("Check if add is ok", 2, emptyList.size());
 	}
 
 	
@@ -145,6 +171,26 @@ public class MyLinkedListTester {
 	public void testAddAtIndex()
 	{
         // TODO: implement this test
+		emptyList.add(0);
+		assertEquals("Check if add is ok", (Integer)0, emptyList.get(0));
+		assertEquals("Check if add is ok", 1, emptyList.size());
+		emptyList.add(0,2);
+		assertEquals("Check if add is ok", (Integer)2, emptyList.get(0));
+		assertEquals("Check if add is ok", 2, emptyList.size());
+		try {
+			list1.add(-1, 0);
+			fail("invalid index");
+		}
+		catch(IndexOutOfBoundsException e){
+			
+		}
+		try {
+			list1.add(10000, 0);
+			fail("invalid index");
+		}
+		catch(IndexOutOfBoundsException e){
+			
+		}
 		
 	}
 	
@@ -153,6 +199,30 @@ public class MyLinkedListTester {
 	public void testSet()
 	{
 	    // TODO: implement this test
+		int prev = list1.set(0, 2);
+		assertEquals("Check if add is ok", 65, prev);
+		assertEquals("Check if add is ok", (Integer)2, list1.get(0));
+		try {
+			list1.set(0,null);
+			fail("null pointer inserted");
+		}
+		catch(NullPointerException e) {
+			
+		}
+		try {
+			list1.set(-1, 0);
+			fail("invalid index");
+		}
+		catch(IndexOutOfBoundsException e){
+			
+		}
+		try {
+			list1.set(10000, 0);
+			fail("invalid index");
+		}
+		catch(IndexOutOfBoundsException e){
+			
+		}
 	    
 	}
 	
